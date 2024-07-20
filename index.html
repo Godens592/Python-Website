@@ -12,7 +12,8 @@
         nav ul li { display: inline; margin-right: 10px; }
         nav ul li a { color: white; text-decoration: none; }
         .container { width: 80%; margin: auto; overflow: hidden; padding: 20px; }
-        img { max-width: 100%; height: auto; margin: 20px 0; }
+        img { max-width: 100%; height: auto; margin: 20px 0; display: block; }
+        .image-container { max-width: 600px; margin: 20px auto; }
     </style>
 </head>
 <body>
@@ -34,12 +35,16 @@
         <p>How has Guyana's human development progressed over the past three decades, and what strategies can be implemented to address remaining challenges and further improve the country's Human Development Index?</p>
         
         <h3>1. Overview of Guyana's HDI Progress</h3>
-        <img src="hdi_over_time.png" alt="HDI Over Time Graph">
+        <div class="image-container">
+            <img src="hdi_over_time.png" alt="HDI Over Time Graph">
+        </div>
         <p>Guyana's Human Development Index (HDI) has shown steady improvement from 1990 to 2019. In 1990, Guyana's HDI was 0.548, placing it in the low human development category. By 2019, it had risen to 0.682, moving the country into the medium human development category. This represents a total increase of 24.5% over 29 years, or an average annual increase of about 0.76%.</p>
         <p>Despite this progress, Guyana still faces challenges in accelerating its development to catch up with regional peers and reach the high human development category.</p>
         
         <h3>2. Components of HDI: Identifying Areas of Progress and Concern</h3>
-        <img src="hdi_components_area.png" alt="HDI Components Stacked Area Chart">
+        <div class="image-container">
+            <img src="hdi_components_area.png" alt="HDI Components Stacked Area Chart">
+        </div>
         <p>The HDI is composed of three dimensions: health, education, and standard of living. This stacked area chart reveals that while all components have improved, they've done so at different rates:</p>
         <ul>
             <li>The Income Index has shown the most significant improvement, particularly after 2000, likely due to economic reforms and growth in key sectors.</li>
@@ -48,7 +53,9 @@
         </ul>
         
         <h3>3. Comparative Analysis of HDI Progress</h3>
-        <img src="hdi_comparison_bar.png" alt="HDI Comparison Bar Chart">
+        <div class="image-container">
+            <img src="hdi_comparison_bar.png" alt="HDI Comparison Bar Chart">
+        </div>
         <p>This bar chart provides a clear visualization of Guyana's HDI progress at decade intervals:</p>
         <ul>
             <li>1990-2000: The most significant improvement, with HDI increasing from 0.548 to 0.616, a 12.4% rise.</li>

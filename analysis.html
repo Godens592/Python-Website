@@ -12,7 +12,8 @@
         nav ul li { display: inline; margin-right: 10px; }
         nav ul li a { color: white; text-decoration: none; }
         .container { width: 80%; margin: auto; overflow: hidden; padding: 20px; }
-        img { max-width: 100%; height: auto; margin: 20px 0; }
+        img { max-width: 100%; height: auto; margin: 20px 0; display: block; }
+        .image-container { max-width: 600px; margin: 20px auto; }
     </style>
 </head>
 <body>
@@ -30,7 +31,9 @@
         <h2>In-depth Analysis of Key Development Factors</h2>
         
         <h3>1. Economic Growth and Its Impact on Life Expectancy</h3>
-        <img src="life_expectancy_vs_gni_scatter.png" alt="Life Expectancy vs GNI Scatter Plot">
+        <div class="image-container">
+            <img src="life_expectancy_vs_gni_scatter.png" alt="Life Expectancy vs GNI Scatter Plot">
+        </div>
         <p>This scatter plot reveals the relationship between Guyana's economic growth (measured by GNI per capita) and improvements in life expectancy:</p>
         <ul>
             <li>There's a clear positive correlation between GNI per capita and life expectancy, indicating that economic growth has contributed to better health outcomes.</li>
@@ -40,7 +43,9 @@
         <p>This analysis highlights the importance of economic development in improving living standards, but also indicates that economic growth alone may not be sufficient to address all health challenges.</p>
         
         <h3>2. Education: Current State and Future Potential</h3>
-        <img src="education_indicators_bar.png" alt="Education Indicators Grouped Bar Chart">
+        <div class="image-container">
+            <img src="education_indicators_bar.png" alt="Education Indicators Grouped Bar Chart">
+        </div>
         <p>This grouped bar chart compares two key education indicators - Mean Years of Schooling and Expected Years of Schooling - over time:</p>
         <ul>
             <li>Mean Years of Schooling has increased from 6.77 years in 1990 to 8.49 years in 2019, a 25.4% improvement.</li>
@@ -50,7 +55,9 @@
         <p>While progress is evident, the fact that Mean Years of Schooling remains below 9 years suggests that many Guyanese are not completing secondary education. This represents a significant opportunity for further development through increased investment in education and policies to improve school retention rates.</p>
         
         <h3>3. Interrelation of Development Indicators</h3>
-        <img src="key_indicators_heatmap.png" alt="Key Indicators Correlation Heatmap">
+        <div class="image-container">
+            <img src="key_indicators_heatmap.png" alt="Key Indicators Correlation Heatmap">
+        </div>
         <p>This heatmap visualizes the correlations between key development indicators:</p>
         <ul>
             <li>HDI shows strong positive correlations with all other indicators, as expected.</li>
