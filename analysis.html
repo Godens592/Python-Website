@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analysis - Guyana's Development Challenges and Progress</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; }
         header { background: #35424a; color: white; text-align: center; padding: 1rem; }
@@ -12,8 +13,7 @@
         nav ul li { display: inline; margin-right: 10px; }
         nav ul li a { color: white; text-decoration: none; }
         .container { width: 80%; margin: auto; overflow: hidden; padding: 20px; }
-        img { max-width: 100%; height: auto; margin: 20px 0; display: block; }
-        .image-container { max-width: 600px; margin: 20px auto; }
+        .chart-container { max-width: 800px; margin: 20px auto; }
     </style>
 </head>
 <body>
@@ -31,43 +31,137 @@
         <h2>In-depth Analysis of Key Development Factors</h2>
         
         <h3>1. Economic Growth and Its Impact on Life Expectancy</h3>
-        <div class="image-container">
-            <img src="life_expectancy_vs_gni_scatter.png" alt="Life Expectancy vs GNI Scatter Plot">
+        <div class="chart-container">
+            <canvas id="lifeExpectancyVsGNIChart"></canvas>
         </div>
-        <p>This scatter plot reveals the relationship between Guyana's economic growth (measured by GNI per capita) and improvements in life expectancy:</p>
-        <ul>
-            <li>There's a clear positive correlation between GNI per capita and life expectancy, indicating that economic growth has contributed to better health outcomes.</li>
-            <li>In 1990, Guyana's GNI per capita was about $2,537, with a life expectancy of 63.3 years. By 2019, GNI per capita had risen to $9,455, and life expectancy had increased to 69.9 years.</li>
-            <li>However, the relationship is not perfectly linear. The rate of improvement in life expectancy slows as GNI per capita increases, suggesting diminishing returns and the need for targeted health interventions beyond economic growth.</li>
-        </ul>
-        <p>This analysis highlights the importance of economic development in improving living standards, but also indicates that economic growth alone may not be sufficient to address all health challenges.</p>
+        <p>This scatter plot reveals the relationship between Guyana's economic growth (measured by GNI per capita) and improvements in life expectancy.</p>
         
         <h3>2. Education: Current State and Future Potential</h3>
-        <div class="image-container">
-            <img src="education_indicators_bar.png" alt="Education Indicators Grouped Bar Chart">
+        <div class="chart-container">
+            <canvas id="educationIndicatorsChart"></canvas>
         </div>
-        <p>This grouped bar chart compares two key education indicators - Mean Years of Schooling and Expected Years of Schooling - over time:</p>
-        <ul>
-            <li>Mean Years of Schooling has increased from 6.77 years in 1990 to 8.49 years in 2019, a 25.4% improvement.</li>
-            <li>Expected Years of Schooling has risen more dramatically, from 10.12 years in 1990 to 11.43 years in 2019, a 13% increase.</li>
-            <li>The gap between Mean and Expected Years of Schooling has narrowed, indicating improved retention in the education system.</li>
-        </ul>
-        <p>While progress is evident, the fact that Mean Years of Schooling remains below 9 years suggests that many Guyanese are not completing secondary education. This represents a significant opportunity for further development through increased investment in education and policies to improve school retention rates.</p>
+        <p>This grouped bar chart compares two key education indicators - Mean Years of Schooling and Expected Years of Schooling - over time.</p>
         
         <h3>3. Interrelation of Development Indicators</h3>
-        <div class="image-container">
-            <img src="key_indicators_heatmap.png" alt="Key Indicators Correlation Heatmap">
+        <div class="chart-container">
+            <canvas id="correlationHeatmapChart"></canvas>
         </div>
-        <p>This heatmap visualizes the correlations between key development indicators:</p>
-        <ul>
-            <li>HDI shows strong positive correlations with all other indicators, as expected.</li>
-            <li>GNI per capita has the strongest correlation with HDI (0.98), underlining the critical role of economic growth in overall development.</li>
-            <li>Life expectancy and mean years of schooling also show strong correlations with HDI (0.95 and 0.92 respectively), but slightly weaker than GNI per capita.</li>
-            <li>The correlation between life expectancy and GNI per capita (0.91) reinforces our earlier observation about the link between economic growth and health outcomes.</li>
-        </ul>
-        <p>This analysis emphasizes the interconnected nature of development factors. Improvements in one area tend to positively impact others, suggesting that a holistic approach to development is likely to be most effective.</p>
-        
-        <p>These insights will inform our recommendations for strategies to address Guyana's remaining development challenges and accelerate progress across all dimensions of human development.</p>
+        <p>This heatmap visualizes the correlations between key development indicators.</p>
     </div>
+
+    <script>
+        // Life Expectancy vs GNI Chart
+        const lifeExpectancyCtx = document.getElementById('lifeExpectancyVsGNIChart').getContext('2d');
+        new Chart(lifeExpectancyCtx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Life Expectancy vs GNI per capita',
+                    data: [
+                        {x: 2537, y: 63.3},
+                        {x: 3387, y: 65.2},
+                        {x: 5744, y: 68.1},
+                        {x: 9455, y: 69.9}
+                    ],
+                    backgroundColor: 'rgb(75, 192, 192)'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Life Expectancy vs GNI per capita'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'GNI per capita (USD)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Life Expectancy (years)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Education Indicators Chart
+        const educationCtx = document.getElementById('educationIndicatorsChart').getContext('2d');
+        new Chart(educationCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1990', '2000', '2010', '2019'],
+                datasets: [{
+                    label: 'Mean Years of Schooling',
+                    data: [6.77, 7.52, 8.12, 8.49],
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                }, {
+                    label: 'Expected Years of Schooling',
+                    data: [10.12, 10.75, 11.39, 11.43],
+                    backgroundColor: 'rgba(255, 159, 64, 0.5)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Education Indicators Over Time'
+                    }
+                }
+            }
+        });
+
+        // Correlation Heatmap Chart
+        const correlationCtx = document.getElementById('correlationHeatmapChart').getContext('2d');
+        new Chart(correlationCtx, {
+            type: 'heatmap',
+            data: {
+                labels: ['HDI', 'GNI per capita', 'Life Expectancy', 'Mean Years of Schooling'],
+                datasets: [{
+                    label: 'HDI',
+                    data: [1, 0.98, 0.95, 0.92]
+                }, {
+                    label: 'GNI per capita',
+                    data: [0.98, 1, 0.91, 0.89]
+                }, {
+                    label: 'Life Expectancy',
+                    data: [0.95, 0.91, 1, 0.88]
+                }, {
+                    label: 'Mean Years of Schooling',
+                    data: [0.92, 0.89, 0.88, 1]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Correlation Heatmap of Key Indicators'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Indicators'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Indicators'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
